@@ -13,6 +13,13 @@ public class Stack
         this.MAX = limit;
     }
 
+    public void print()
+    {
+        System.out.print("[ ");
+        stack.forEach(e -> System.out.print("'" + e + "', "));
+        System.out.println(" ]");
+    }
+
     public String pop()
     {
         length -= 1;
@@ -24,8 +31,11 @@ public class Stack
 
     public void push(String item)
     {
-        stack.add(item);
-        length += 1;
+        if (MAX > length)
+        {
+            stack.add(item);
+            length += 1;
+        }
     }
 
     public String numOfItems()

@@ -9,6 +9,14 @@ public class Main
         stack.push("first");
         stack.push("second");
         stack.push("third");
-        System.out.println(stack.numOfItems);
+        System.out.println(stack.numOfItems());
+        stack.print();
+        stack.pop();
+        stack.print();
+        stack.pop();
+        stack.print();
+        stack.pop();
+        stack.print();
+        System.out.println(stack.numOfItems());
     }
 }
