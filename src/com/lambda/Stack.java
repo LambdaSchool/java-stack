@@ -1,6 +1,7 @@
 package com.lambda;
 
 import java.lang.reflect.Array;
+import java.util.Arrays;
 
 public class Stack {
     private String [] items;
@@ -12,8 +13,18 @@ public class Stack {
     }
 
     public void print() {
-        for (int i = 0; i < items.length; i++) {
-            System.out.println(items[i]);
+        if (size == 0) {
+            System.out.println("[]");
+        } else {
+            System.out.print("[");
+            for (int i = 0; i < items.length; i++) {
+                System.out.print(" " + items[i]);
+                if (items[i+1] == null) {
+                    break;
+                }
+                System.out.print(",");
+            }
+            System.out.println(" ]");
         }
     }
 
@@ -27,15 +38,15 @@ public class Stack {
         }
     }
 
-    public String pop() {
-        String popped = "";
+    public void pop() {
         for (int i = 0; i < items.length - 1; i++) {
             if (items[i+1] == null) {
-                popped = items[i];
+                System.out.println(items[i]);
                 items[i] = null;
+                size--;
+                break;
             }
         }
-        return popped;
     }
 
     public String numOfItems() {
